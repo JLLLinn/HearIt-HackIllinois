@@ -1,38 +1,29 @@
 <ion-view view-title="Sounds">
 <div class="container"
-     ng-controller="TodosListCtrl">
+     ng-controller="SoundFeedCtrl">
   <ion-content>
-    <ion-card>
+    <div class="list card">
 
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="img/marty-avatar.png">
-        </ion-avatar>
+      <div class="item item-avatar">
+        <img src="mcfly.jpg">
         <h2>Marty McFly</h2>
-        <p>November 5, 1955</p>
-      </ion-item>
+        <p>November 05, 1955</p>
+      </div>
 
-      <img src="img/advance-card-bttf.png">
+      <div class="item item-body">
+        <img class="full-image" src="delorean.jpg">
+        <p>
+          This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+          the content is from a card-body consisting of an image and paragraph text. The footer
+          consists of tabs, icons aligned left, within the card-footer.
+        </p>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>
+      </div>
 
-      <ion-card-content>
-      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-      </ion-card-content>
-
-      <ion-item>
-        <button primary clear item-left>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
-        </button>
-        <button primary clear item-left>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
-        </button>
-        <ion-note item-right>
-          11h ago
-        </ion-note>
-      </ion-item>
-
-    </ion-card>
+    </div>
   </ion-content>
 </div>
 </ion-view>
