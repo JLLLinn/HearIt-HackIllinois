@@ -1,5 +1,12 @@
 <ion-view view-title="Account">
   <ion-content>
 
+    <login-buttons></login-buttons>
+    <div ng-show="$root.currentUser" class="list list-inset">
+
+      <div class="item">
+        {{$root.currentUser.username}}
+      </div>
+    </div>
   </ion-content>
 </ion-view>
