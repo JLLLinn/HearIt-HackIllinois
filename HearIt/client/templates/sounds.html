@@ -1,14 +1,23 @@
 <ion-view view-title="Sounds">
 <div class="container"
-     ng-controller="SoundFeedCtrl">
+     ng-controller="SoundFeedCtrl as sc">
   <ion-content>
     <div class="list card">
 
       <div class="item item-avatar">
-        <img src="mcfly.jpg">
-        <h2>Marty McFly</h2>
-        <p>November 05, 1955</p>
+        <img src="profile-man.png">
+          <div class = "card-header-container">
+            <div class ="card-header-image">
+              <img src="smile.svg" style="height:40px; width:40px">
+            </div>
+            <div class = "card-header-content">
+              <h2>{{sc.hello}}</h2>
+              <p>{{date}}</p>
+            </div>
+          </div>
+
       </div>
+
 
       <div class="item item-body">
         <img class="full-image" src="delorean.jpg">

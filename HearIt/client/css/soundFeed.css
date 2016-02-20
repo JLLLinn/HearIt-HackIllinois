@@ -1,0 +1,16 @@
+.card-header-container {
+    position: relative;
+    width: 100%;
+}
+
+.card-header-content {
+    float:left;
+    position: relative;
+    width: 80%;
+}
+
+.card-header-image {
+    float:left;
+    position: relative;
+    width: 50px;
+}
