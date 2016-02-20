@@ -1,13 +1,19 @@
 Tasks = new Mongo.Collection('tasks');
-
 if (Meteor.isClient) {
-
     Accounts.ui.config({
        passwordSignupFields: "USERNAME_ONLY"
      });
-
   // This code only runs on the client
   angular.module('simple-todos',['angular-meteor', 'accounts.ui']);
+
+  function onReady() {
+      angular.bootstrap(document, ['simple-todos']);
+  }
+  if (Meteor.isCordova)
+         angular.element(document).on('deviceready', onReady);
+     else
+         angular.element(document).ready(onReady);
+
 
   angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
     function ($scope, $meteor) {
@@ -40,6 +46,12 @@ if (Meteor.isClient) {
       };
 
     }]);
+}
+
+if (Meteor.isServer) {
+    Meteor.startup(function () {
+        // code to run on server at startup
+    });
 }
 
 
