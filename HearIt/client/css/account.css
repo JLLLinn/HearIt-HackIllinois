@@ -1,0 +1,10 @@
+#login-buttons {
+  display: block;
+  padding-left: 10px;
+  margin-top: 3px;
+}
+
+#login-dropdown-list{
+  margin-left: 0px;
+  margin-top: 3px;
+}
