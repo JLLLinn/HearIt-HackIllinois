@@ -15,3 +15,7 @@ else {
 function onReady() {
   angular.bootstrap(document, ['HearIt']);
 }
+
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_AND_EMAIL"
+  });
