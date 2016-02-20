@@ -21,10 +21,16 @@ function config($stateProvider, $urlRouterProvider) {
       url: '/account',
       views: {
         'tab-account': {
-          templateUrl: 'client/templates/account.html'
+          templateUrl: 'client/templates/account.html',
+          // controller: 'AccountCtrl'
         }
       }
     });
+    // .state('login', {
+    //   url: '/login',
+    //   templateUrl: 'client/templates/login.html',
+    //   controller: 'LoginCtrl'
+    // });
 
   $urlRouterProvider.otherwise('tab/sounds');
 }
