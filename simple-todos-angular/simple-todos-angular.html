@@ -8,10 +8,19 @@
      ng-controller="TodosListCtrl">
 
   <header>
-    <h1>Todo List</h1>
+    <h1>Todo List ( {{ incompleteCount() }} )</h1>
+
+    <label class="hide-completed">
+      <input type="checkbox" ng-model="hideCompleted"/>
+      Hide Completed Tasks
+    </label>
+
+    <login-buttons></login-buttons>
 
    <!-- add a form below the h1 -->
-   <form class="new-task" ng-submit="addTask(newTask); newTask='';">
+   <form class="new-task"
+       ng-submit="addTask(newTask); newTask='';"
+       ng-show="$root.currentUser">
      <input ng-model="newTask" type="text"
             name="text" placeholder="Type to add new tasks" />
    </form>
@@ -19,14 +28,16 @@
   </header>
 
   <ul>
-      <!-- if checked property of a task is true, the checked class is added to our list item -->
-      <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
-        <button class="delete" ng-click="tasks.remove(task)">&times;</button>
+    <!-- if checked property of a task is true, the checked class is added to our list item -->
+    <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
+      <button class="delete" ng-click="tasks.remove(task)">&times;</button>
 
-        <input type="checkbox" ng-model="task.checked" class="toggle-checked" />
+      <input type="checkbox" ng-model="task.checked" class="toggle-checked" />
 
-        <span class="text">{{task.text}}</span>
-      </li>
+      <span class="text">
+        <strong>{{task.username}}</strong> - {{task.text}}
+      </span>
+    </li>
   </ul>
 
 </div>
