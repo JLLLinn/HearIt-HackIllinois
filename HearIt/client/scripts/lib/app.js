@@ -1,9 +1,10 @@
 angular
-  .module('HearIt', [
-    'angular-meteor',
-    'ionic',
-    'accounts.ui'
-  ]);
+.module('HearIt', [
+  'angular-meteor',
+  'ionic',
+  'accounts.ui',
+  'ngCordova'
+]);
 
 if (Meteor.isCordova) {
   angular.element(document).on('deviceready', onReady);
@@ -17,5 +18,5 @@ function onReady() {
 }
 
 Accounts.ui.config({
-    passwordSignupFields: "USERNAME_AND_EMAIL"
-  });
+  passwordSignupFields: "USERNAME_AND_EMAIL"
+});

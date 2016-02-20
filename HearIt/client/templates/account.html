@@ -5,7 +5,18 @@
     <div ng-show="$root.currentUser" class="list list-inset">
 
       <div class="item">
-        {{$root.currentUser.username}}
+        {{$root.currentUser.username}} {{try}}
+      </div>
+      <div class="item">
+        <a class="profile-picture positive" ng-click="getPhoto()">
+          <div ng-if="$root.currentUser.profile.picture">
+            <img ng-src="{{ $root.currentUser.profile.picture }}" alt="profile picture">
+            edit
+          </div>
+          <div ng-if="!$root.currentUser.profile.picture" class="upload-placehoder">
+            Add photo
+          </div>
+        </a>
       </div>
     </div>
   </ion-content>
