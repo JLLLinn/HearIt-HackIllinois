@@ -16,6 +16,14 @@ function config($stateProvider, $urlRouterProvider) {
           templateUrl: 'client/templates/sounds.html'
         }
       }
+    })
+    .state('tab.account', {
+      url: '/account',
+      views: {
+        'tab-account': {
+          templateUrl: 'client/templates/account.html'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('tab/sounds');
