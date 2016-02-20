@@ -8,7 +8,15 @@ if (Meteor.isClient) {
   angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
     function ($scope, $meteor) {
 
-      $scope.tasks = $meteor.collection(Tasks); //using $meteor service to bind collection into our scope
+      $scope.tasks = $meteor.collection( function() {
+        return Tasks.find({}, { sort: { createdAt: -1 } })
+      }); //using $meteor service to bind collection into our scope
 
+      $scope.addTask = function (newTask) {
+        $scope.tasks.push( {
+          text: newTask,
+          createdAt: new Date() }
+        );
+      };
     }]);
 }
