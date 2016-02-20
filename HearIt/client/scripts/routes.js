@@ -17,6 +17,14 @@ function config($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('tab.top-sounds', {
+      url: '/top-sounds',
+      views: {
+        'tab-top-sounds': {
+          templateUrl: 'client/templates/top-sounds.html'
+        }
+      }
+    })
     .state('tab.account', {
       url: '/account',
       views: {

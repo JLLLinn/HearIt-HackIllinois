@@ -14,4 +14,4 @@ else {
 
 function onReady() {
   angular.bootstrap(document, ['Whatsapp']);
-} 
+}
