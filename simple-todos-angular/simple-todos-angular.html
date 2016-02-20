@@ -5,17 +5,17 @@
 
 <body>
 <div class="container"
-     ng-app="simple-todos"
      ng-controller="TodosListCtrl">
 
   <header>
     <h1>Todo List ( {{ incompleteCount() }} )</h1>
-
-    <h3> Welcome, {{$root.currentUser.username}} </h3>
     <label class="hide-completed">
       <input type="checkbox" ng-model="hideCompleted"/>
       Hide Completed Tasks
     </label>
+    <h3> Welcome, {{$root.currentUser.username}} </h3>
+
+
 
     <login-buttons></login-buttons>
 
@@ -31,11 +31,18 @@
 
   <ul>
     <!-- if checked property of a task is true, the checked class is added to our list item -->
-    <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
+    <li ng-repeat="task in tasks"
+        ng-class="{'checked': task.checked, 'private': task.private}">
       <button class="delete" ng-click="deleteTask(task)">&times;</button>
 
       <input type="checkbox" ng-checked="task.checked"
-                   ng-click="setChecked(task)" class="toggle-checked" />
+             ng-click="setChecked(task)" class="toggle-checked" />
+
+      <button class="toggle-private"
+              ng-if="task.owner === $root.currentUser._id"
+              ng-click="setPrivate(task)">
+        {{task.private == true ? "Private" : "Public"}}
+      </button>
 
       <span class="text">
         <strong>{{task.username}}</strong> - {{task.text}}
