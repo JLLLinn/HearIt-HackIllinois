@@ -10,6 +10,7 @@
   <header>
     <h1>Todo List ( {{ incompleteCount() }} )</h1>
 
+    <h3> Welcome, {{$root.currentUser.username}} </h3>
     <label class="hide-completed">
       <input type="checkbox" ng-model="hideCompleted"/>
       Hide Completed Tasks
@@ -30,9 +31,10 @@
   <ul>
     <!-- if checked property of a task is true, the checked class is added to our list item -->
     <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
-      <button class="delete" ng-click="tasks.remove(task)">&times;</button>
+      <button class="delete" ng-click="deleteTask(task)">&times;</button>
 
-      <input type="checkbox" ng-model="task.checked" class="toggle-checked" />
+      <input type="checkbox" ng-checked="task.checked"
+                   ng-click="setChecked(task)" class="toggle-checked" />
 
       <span class="text">
         <strong>{{task.username}}</strong> - {{task.text}}
