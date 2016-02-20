@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="293262d2-ac21-4edb-9ac4-983b33e0b3f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple-todos-angular.css" afterPath="$PROJECT_DIR$/simple-todos-angular.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple-todos-angular.html" afterPath="$PROJECT_DIR$/simple-todos-angular.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple-todos-angular.js" afterPath="$PROJECT_DIR$/simple-todos-angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
     </list>
     <ignored path="simple-todos-angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="simple-todos-angular.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple-todos-angular.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.333334">
-              <caret line="36" column="39" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="39" />
+            <state vertical-scroll-proportion="-25.458334">
+              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -40,8 +38,8 @@
       <file leaf-file-name="simple-todos-angular.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simple-todos-angular.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21854305">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.23841059">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +48,8 @@
       <file leaf-file-name="simple-todos-angular.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple-todos-angular.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.962963">
-              <caret line="92" column="10" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="10" />
+            <state vertical-scroll-proportion="-9.518518">
+              <caret line="93" column="10" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -215,24 +213,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/simple-todos-angular.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.962963">
-          <caret line="92" column="10" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="10" />
+        <state vertical-scroll-proportion="-9.518518">
+          <caret line="93" column="10" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simple-todos-angular.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.333334">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="39" />
+        <state vertical-scroll-proportion="-25.458334">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simple-todos-angular.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21854305">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.23841059">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
