@@ -1,14 +1,44 @@
 <head>
-  <title>simple-todos-angular</title>
+    <title>Todo List</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+<div class="container"
+     ng-app="simple-todos"
+     ng-controller="TodosListCtrl">
 
-  {{> hello}}
+
+    <header>
+        <h1>Todo List ( {{ incompleteCount() }} )</h1>
+
+        <label class="hide-completed">
+            <input type="checkbox" ng-model="hideCompleted"/>
+            Hide Completed Tasks
+        </label>
+        <login-buttons></login-buttons>
+
+
+        <!-- add a form below the h1 -->
+        <form class="new-task"
+              ng-submit="addTask(newTask); newTask='';"
+              ng-show="$root.currentUser">
+            <input ng-model="newTask" type="text"
+                   name="text" placeholder="Type to add new tasks"/>
+        </form>
+    </header>
+
+    <ul>
+        <li ng-repeat="task in tasks" ng-class="{'checked': task.checked}">
+            <button class="delete" ng-click="tasks.remove(task)">&times;</button>
+
+            <input type="checkbox" ng-model="task.checked" class="toggle-checked"/>
+
+            <span class="text">
+                <strong>{{task.username}}</strong> - {{task.text}}
+            </span>
+        </li>
+
+    </ul>
+
+</div>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
