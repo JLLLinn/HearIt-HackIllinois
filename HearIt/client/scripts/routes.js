@@ -34,14 +34,6 @@ function config($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('tab.todo', {
-      url: '/todo',
-      views: {
-        'tab-todo': {
-          templateUrl: 'client/templates/todo.html'
-        }
-      }
-    })
     .state('tab.recorder', {
       url: '/recorder',
       views: {
