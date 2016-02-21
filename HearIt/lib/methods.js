@@ -1,7 +1,7 @@
 Meteor.methods({
 
   addSoundPost: function (title, soundFileLoc, vizData) {
-      console.log(vizData);
+      //console.log(vizData.length);
       vizData = "hi";
       // Make sure the user is logged in before inserting a task
       if (! Meteor.userId()) {

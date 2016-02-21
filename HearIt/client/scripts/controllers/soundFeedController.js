@@ -1,3 +1,7 @@
+Sounds = new FS.Collection("sounds", {
+  stores: [new FS.Store.FileSystem("sounds", {path: "/public"})]
+});
+
 if (Meteor.isClient) {
 
 angular.module('HearIt')
@@ -9,11 +13,12 @@ function SoundFeedController($scope, $meteor, $ionicModal){
     //client subscribes to all the data from that publication
     $scope.$meteorSubscribe('soundPosts');
     //$scope.$meteorSubscribe('users');
+    $scope.query = {};
 
-    self.feed = $meteor.collection(function() {
+    $scope.feed = $meteor.collection(function() {
         return SoundPosts.find($scope.getReactively('query'), {sort: {createdAt: -1}})
      }); //using $meteor service to bind collection into our scope
-
+     //console.log($scope.feed);
     self.hello = "Hello World"; //in html we have to use {{instance.hello}}, where instance = name of controllerAs part
     $scope.date = "November 05, 1955"; //in html we can use use {{date}}
     $scope.vizData = null;
@@ -71,6 +76,7 @@ function SoundFeedController($scope, $meteor, $ionicModal){
     $scope.showResult = true;
 
     $scope.submitForm = function(title){
+
         $scope.addPost(title, $scope.soundFileLoc, $scope.vizData);
     }
     $scope.toggleRecording = function($event){
@@ -105,8 +111,35 @@ function SoundFeedController($scope, $meteor, $ionicModal){
         $scope.vizData = buffers[0];
         // the ONLY time gotBuffers is called is right after a new recording is completed -
         // so here's where we should set up the download.
-        audioRecorder.exportWAV( doneEncoding );
+        audioRecorder.exportWAV( $scope.doneEncoding );
     }
-
+    $scope.doneEncoding = function( blob ) {
+        $scope.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+        recIndex++;
+    }
+     $scope.setupDownload = function(blob, filename){
+        var url = (window.URL || window.webkitURL).createObjectURL(blob);
+        var link = document.getElementById("save");
+        link.href = url;
+        link.download = filename || 'output.wav';
+        Sounds.insert(blob, function (err, fileObj)  {
+        // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+      });
+      }
 }
+}
+if (Meteor.isServer) {
+    Sounds.allow({
+        'insert': function () {
+        // add custom authentication code here
+        return true;
+        }
+    });
+    //registers a publication named "tasks"
+    Meteor.publish('soundPosts', function () {
+        return soundPosts.find({});
+    });
+    Meteor.startup(function () {
+        // code to run on server at startup
+    });
 }

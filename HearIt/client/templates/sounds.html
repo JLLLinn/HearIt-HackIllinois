@@ -8,7 +8,7 @@
       Hide Completed Task Status: {{checkText}}
     </label> -->
     <ul>
-      <li ng-repeat = "cardData in sc.feed" >
+      <li ng-repeat = "cardData in feed" ng-init="drawBufferGlobalPart(a, a)" >
         <div class="list card">
           <div class="item item-avatar">
             <img src="profile-man.png">
@@ -27,7 +27,7 @@
           <div class="item item-body">
             <div class = "row">
         			<div id="viz" class = "col col-90">
-        				<canvas id="wavedisplay" style="width:95%; height:200px; background: #202020"></canvas>
+        				<canvas id="wavedisplay a" style="width:95%; height:200px; background: #202020"></canvas>
         			</div>
         			<div id="controls" class = "col col-10">
         				<a id="save" href="" ><img src="save.svg"  style="height:40px; width:40px"></a>

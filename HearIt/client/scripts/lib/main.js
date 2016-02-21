@@ -21,9 +21,13 @@ audioInput = null;
     inputPoint = null;
     audioRecorder = null;
 rafID = null;
+rafID1 = null;
 analyserContext = null;
+analyserContext1 = null;
 canvasWidth=100;
 canvasHeight=100;
+canvasWidth1 = 100;
+canvasHeight1 = 100;
 recIndex = 0;
 
 vizData = null;
@@ -48,6 +52,11 @@ function gotBuffers( buffers ) {
     // the ONLY time gotBuffers is called is right after a new recording is completed -
     // so here's where we should set up the download.
     audioRecorder.exportWAV( doneEncoding );
+}
+
+drawBufferGlobalPart = function(data, title){
+    var canvas = document.getElementById("wavedisplay "+title);
+    drawBufferGlobal( canvas.width, canvas.height, canvas.getContext('2d'), vizData );
 }
 
 doneEncoding = function( blob ) {
@@ -95,6 +104,16 @@ function cancelAnalyserUpdates() {
     rafID = null;
 }
 
+updateAnalyserContext = function(analyserID){
+    alert(analyserID)
+    var canvas = document.getElementById(analyserID);
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;
+    analyserContext = canvas.getContext('2d');
+}
+
+
+
 function updateAnalysers(time) {
     if (!analyserContext) {
         var canvas = document.getElementById("analyser");
@@ -141,6 +160,53 @@ function updateAnalysers(time) {
     rafID = window.requestAnimationFrame( updateAnalysers );
 }
 
+
+function updateAnalysers1(time) {
+    if (!analyserContext1) {
+        var canvas = document.getElementById("analyser-recorder");
+        if(canvas != null){
+            canvasWidth1 = canvas.width;
+            canvasHeight1 = canvas.height;
+            analyserContext1 = canvas.getContext('2d');
+        }
+        else{
+            rafID1 = window.requestAnimationFrame( updateAnalysers1 );
+            return; //wait till canvas is defined
+        }
+
+    }
+
+    // analyzer draw code here
+    {
+        var SPACING = 2;
+        var BAR_WIDTH = 1;
+        var numBars = Math.round(canvasWidth1 / SPACING);
+        var freqByteData = new Uint8Array(analyserNode1.frequencyBinCount);
+
+        analyserNode1.getByteFrequencyData(freqByteData);
+
+        analyserContext1.clearRect(0, 0, canvasWidth1, canvasHeight1);
+        analyserContext1.fillStyle = '#F6D565';
+        analyserContext1.lineCap = 'round';
+        var multiplier = analyserNode1.frequencyBinCount / numBars;
+
+        // Draw rectangle for each frequency bin.
+        for (var i = 0; i < numBars; ++i) {
+            var magnitude = 0;
+            var offset = Math.floor( i * multiplier );
+            // gotta sum/average the block, or we miss narrow-bandwidth spikes
+            for (var j = 0; j< multiplier; j++)
+                magnitude += freqByteData[offset + j];
+            magnitude = magnitude / multiplier;
+            var magnitude2 = freqByteData[i * multiplier];
+            analyserContext1.fillStyle = "hsl( " + Math.round((i*360)/numBars) + ", 100%, 50%)";
+            analyserContext1.fillRect(i * SPACING, canvasHeight1, BAR_WIDTH, -magnitude);
+        }
+    }
+
+    rafID1 = window.requestAnimationFrame( updateAnalysers1 );
+}
+
 function toggleMono() {
     if (audioInput != realAudioInput) {
         audioInput.disconnect();
@@ -168,6 +234,10 @@ function gotStream(stream) {
     analyserNode.fftSize = 2048;
     inputPoint.connect( analyserNode );
 
+    analyserNode1 = audioContext.createAnalyser();
+    analyserNode1.fftSize = 2048;
+    inputPoint.connect( analyserNode1 );
+
     audioRecorder = new Recorder( inputPoint );
 
     zeroGain = audioContext.createGain();
@@ -175,6 +245,7 @@ function gotStream(stream) {
     inputPoint.connect( zeroGain );
     zeroGain.connect( audioContext.destination );
     updateAnalysers();
+    updateAnalysers1();
 }
 
 function initAudio() {
