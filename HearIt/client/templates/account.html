@@ -3,21 +3,52 @@
 
     <login-buttons></login-buttons>
     <div ng-show="$root.currentUser" class="list list-inset">
+      <a class="item item-thumbnail-left" href="#">
+        <img src="spengler.jpg">
+        <h2>{{$root.currentUser.username}}</h2>
+        <p></p>
+      </a>
+      <div class="item ">
 
-      <div class="item">
-        {{$root.currentUser.username}} {{try}}
+        <ion-toggle ng-model="privateCheck" toggle-class="toggle-calm">Private</ion-toggle>
       </div>
-      <div class="item">
-        <a class="profile-picture positive" ng-click="getPhoto()">
-          <div ng-if="$root.currentUser.profile.picture">
-            <img ng-src="{{ $root.currentUser.profile.picture }}" alt="profile picture">
-            edit
-          </div>
-          <div ng-if="!$root.currentUser.profile.picture" class="upload-placehoder">
-            Add photo
-          </div>
+
+      <div class="list">
+
+        <div class="item item-divider">
+          Friends
+        </div>
+
+        <a class="item item-avatar" href="#">
+          <img src="venkman.jpg">
+          <h2>Venkman</h2>
+          <p>Back off, man. I'm a scientist.</p>
         </a>
+        <a class="item item-avatar" href="#">
+          <img src="venkman.jpg">
+          <h2>Venkman</h2>
+          <p>Back off, man. I'm a scientist.</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="venkman.jpg">
+          <h2>Venkman</h2>
+          <p>Back off, man. I'm a scientist.</p>
+        </a>
+
+
       </div>
+      <!-- <div class="item">
+      <img ng-if="post.imageData" class="full-image" src="{{post.imageData}}">
+      <a class="profile-picture positive" ng-click="getPhoto()">
+      <div ng-if="$root.currentUser.profile.picture">
+      <img ng-src="{{ $root.currentUser.profile.picture }}" alt="profile picture">
+      edit
     </div>
-  </ion-content>
+    <div ng-if="!$root.currentUser.profile.picture" class="upload-placehoder">
+    Add photo
+  </div>
+</a>
+</div> -->
+</div>
+</ion-content>
 </ion-view>

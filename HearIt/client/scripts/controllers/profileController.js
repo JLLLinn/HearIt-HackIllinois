@@ -9,36 +9,15 @@ function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoadin
   //
   // this.name = name;
   // this.updateName = updateName
-  $scope.try = "hey";
   $scope.updatePicture = updatePicture;
-
+  $scope.name= "e"
   ////////////
-  $scope.getPhoto = function(){
+  $scope.$watch('privateCheck', function(){
 
-    var options = {
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      allowEdit: false,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 500,
-      targetHeight: 500,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-      correctOrientation:true
-    };
+    console.log("click");
+    //return Meteor.users.update(userId, { $set: { 'private': true } })
 
-    $cordovaCamera.getPicture(options).then(function(imageData) {
-      var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
-      $scope.newPost.imageData=image.src;
-
-    }, function(err) {
-      // error
-    });
-
-  };
-
+  });
 
   function updatePicture () {
     console.log("clicked");
