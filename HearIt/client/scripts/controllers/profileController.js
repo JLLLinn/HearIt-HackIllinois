@@ -1,7 +1,7 @@
 angular.module('HearIt')
 .controller('ProfileCtrl', ProfileCtrl);
 
-function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoading,$cordovaCamera) {
+function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoading) {
   $reactive(this).attach($scope);
 
   // let user = Meteor.user();

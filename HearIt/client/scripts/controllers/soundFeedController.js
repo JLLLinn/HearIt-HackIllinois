@@ -1,3 +1,5 @@
+if (Meteor.isClient) {
+
 angular.module('HearIt')
     .controller('SoundFeedCtrl', ['$scope', '$meteor', '$ionicModal', SoundFeedController]);
 
@@ -39,11 +41,12 @@ function SoundFeedController($scope, $meteor, $ionicModal){
          // Execute action
        });
 
-    $scope.$watch('hideCompleted', function() {
+    $scope.$watch('completed', function() {
         alert("hi");
-        if ($scope.hideCompleted)
+        if ($scope.completed)
             $scope.checkText = "checked";
         else
             $scope.checkText = "non checked";
     });
+}
 }

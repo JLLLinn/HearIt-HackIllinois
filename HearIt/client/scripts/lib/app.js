@@ -2,8 +2,7 @@ angular
 .module('HearIt', [
   'angular-meteor',
   'ionic',
-  'accounts.ui',
-  'ngCordova'
+  'accounts.ui'
 ]);
 
 if (Meteor.isCordova) {

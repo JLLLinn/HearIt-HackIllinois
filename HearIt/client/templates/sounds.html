@@ -3,8 +3,8 @@
 <div class="container"
      ng-controller="SoundFeedCtrl as sc">
   <ion-content>
-      <label class="hide-completed">
-    <input type="checkbox" ng-model="hideCompleted"/>
+      <label class="">
+    <input type="checkbox" ng-model="$parent.completed"/>
     Hide Completed Task Status: {{checkText}}
   </label>
     <ul>

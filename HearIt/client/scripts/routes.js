@@ -33,7 +33,16 @@ function config($stateProvider, $urlRouterProvider) {
           controller: 'ProfileCtrl'
         }
       }
-    });
+    })
+    .state('tab.todo', {
+      url: '/todo',
+      views: {
+        'tab-todo': {
+          templateUrl: 'client/templates/todo.html'
+        }
+      }
+    })
+    ;
     // .state('login', {
     //   url: '/login',
     //   templateUrl: 'client/templates/login.html',
