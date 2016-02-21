@@ -3,67 +3,27 @@
   <ion-content>
 
     <login-buttons></login-buttons>
-    <div ng-show="$root.currentUser" class="list list-inset">
-      <a class="item item-thumbnail-left" href="#">
-        <img src="spengler.jpg">
-        <h2>{{$root.currentUser.username}}</h2>
-        <p></p>
-      </a>
-      <div class="item ">
-
-        <ion-toggle ng-model="privateCheck" toggle-class="toggle-calm">Private</ion-toggle>
-      </div>
-
-      <div class="list">
-
-        <div class="item item-divider">
-          Friends
-        </div>
-
-        <a class="item item-avatar" href="#">
-          <img src="venkman.jpg">
-          <h2>Venkman</h2>
-          <p>Back off, man. I'm a scientist.</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="venkman.jpg">
-          <h2>Venkman</h2>
-          <p>Back off, man. I'm a scientist.</p>
-        </a>
-        <a class="item item-avatar" href="#">
-          <img src="venkman.jpg">
-          <h2>Venkman</h2>
-          <p>Back off, man. I'm a scientist.</p>
-        </a>
-
-
-      </div>
-
-
-      <div class="list">
-
-        <div class="item item-divider">
-          My Sound Feed
-        </div>
-
+    <div ng-show="$root.currentUser" >
+      <div  class="list list-inset">
         <a class="item item-thumbnail-left" href="#">
-          <img src="nevermind.jpg">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
+          <img src="spengler.jpg">
+          <h2>{{$root.currentUser.username}}</h2>
+          <p></p>
         </a>
-        <a class="item item-thumbnail-left" href="#">
-          <img src="nevermind.jpg">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
-        </a>
-        <a class="item item-thumbnail-left" href="#">
-          <img src="nevermind.jpg">
-          <h2>Pretty Hate Machine</h2>
-          <p>Nine Inch Nails</p>
-        </a>
+        <!-- <div class="item ">
 
+        <ion-toggle ng-model="$parent.privateCheck" toggle-class="toggle-calm">Private</ion-toggle>
+      </div> -->
+      <li class="item item-toggle">
+        Private
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" ng-model="$parent.privateCheck">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
 
-      </div>
 
 
 
@@ -79,6 +39,70 @@
   </div>
 </a>
 </div> -->
+</div>
+<div class="list list-inset">
+
+  <div class="item item-divider">
+    Friends
+  </div>
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="Search" ng-model="$parent.searchFriendTxt">
+  </label>
+  <div ng-if="!$parent.searching">
+    <div class="item item-avatar" href="#" ng-repeat="friend in friends">
+      <img src="venkman.jpg">
+      <h2>{{friend.username}}</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </div>
+  </div>
+  <div ng-if="$parent.searching">
+    <div ng-repeat="searchedFriend in searchedFriends track by $index" class="item item-avatar item-toggle" href="#">
+      <img src="venkman.jpg">
+      <h2>{{searchedFriend.username}}</h2>
+      <p>Back off, man. I'm a scientist.</p>
+      <label class="toggle toggle-assertive">
+        <input type="checkbox" ng-model="$parent.searchedFriends_following[$index]" ng-click="$parent.toggle_follow($index)" >
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- <a class="item item-avatar" href="#">
+  <img src="venkman.jpg">
+  <h2>Venkman</h2>
+  <p>Back off, man. I'm a scientist.</p>
+</a> -->
+
+</div>
+
+
+<div class="list list-inset">
+
+  <div class="item item-divider">
+    My Sound Feed
+  </div>
+
+  <a class="item item-thumbnail-left" href="#">
+    <img src="nevermind.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </a>
+  <a class="item item-thumbnail-left" href="#">
+    <img src="nevermind.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </a>
+  <a class="item item-thumbnail-left" href="#">
+    <img src="nevermind.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </a>
+
+
+</div>
 </div>
 </ion-content>
 
