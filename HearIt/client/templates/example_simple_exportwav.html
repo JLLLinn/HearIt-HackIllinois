@@ -1,0 +1,23 @@
+<ion-view view-title="Record">
+<div class="container"
+     ng-controller="recordCtrl as rec">
+	<ion-content>
+		<div class = "row">
+			<div id="viz" class = "col col-90">
+				<canvas id="analyser" style="width:95%; height:200px; background: #202020"></canvas>
+			</div>
+			<div id="controls" class = "col col-10">
+				<img id="record" src="mic128.png"  ng-click="rec.toggleRecording($event);" class="">
+			</div>
+		</div>
+		<div class = "row">
+			<div id="viz" class = "col col-90">
+				<canvas id="wavedisplay" style="width:95%; height:200px; background: #202020"></canvas>
+			</div>
+			<div id="controls" class = "col col-10">
+				<a id="save" href="" ><img src="save.svg"  style="height:40px; width:40px"></a>
+			</div>
+		</div>
+	</ion-content>
+</div>
+</ion-view>

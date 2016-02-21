@@ -42,6 +42,14 @@ function config($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('tab.recorder', {
+      url: '/recorder',
+      views: {
+        'tab-recorder': {
+          templateUrl: 'client/templates/example_simple_exportwav.html'
+        }
+      }
+    })
     ;
     // .state('login', {
     //   url: '/login',
