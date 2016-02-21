@@ -1,17 +1,38 @@
-<div class="list card ">
-  <div class="item ">
-    <h2>Form</h2>
-    <p>Title</p>
-    <p>Emotion</p>
-  </div>
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Upload New Recording</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+      <form novalidate class="css-form">
+        <label class = "item item-input">
+          <input type="text" placeholder="Title" ng-model="sc.post.title" required>
+        </label>
 
-  <div class="item item-body">
-    <p>
-      Recording Zone
-    </p>
-    <p>
-      <a href="#" class="subdued">1 Like</a>
-      <a href="#" class="subdued">5 Comments</a>
-    </p>
-  </div>
-</div>
+        <div class ="item">
+          <div class = "card-header-container">
+            <div class ="card-header-image">
+              <img src="smile.svg" style="height:40px; width:40px; margin-top:5px">
+            </div>
+            <div class = "card-header-content">
+              <button class="button">
+                Pick emoticon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item item-body">
+          <p>
+            Recording Zone
+          </p>
+          <p>
+            <a href="#" class="subdued">1 Like</a>
+            <a href="#" class="subdued">5 Comments</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-modal-view>

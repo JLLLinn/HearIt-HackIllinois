@@ -1,10 +1,14 @@
 .fixed-bottom{
   position: absolute;
   bottom: 0;
-  margin-bottom: 10px;
+  margin-bottom: 105px !important; /* footer has height 44px, and we also want 10 more above the tab */
   width: 100%;
-  text-align:center;
+  /*text-align:center; */
 }
 /*.bar-footer{
 	height: 300px !important;
 }*/
+
+.popup-card .item{
+    background: white;
+}
