@@ -1,5 +1,4 @@
 Meteor.methods({
-  updatePicture(data) {
-    
-  }
+
+
 });
