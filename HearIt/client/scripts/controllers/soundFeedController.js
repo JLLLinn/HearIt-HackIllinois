@@ -38,4 +38,12 @@ function SoundFeedController($scope, $meteor, $ionicModal){
        $scope.$on('modal.removed', function() {
          // Execute action
        });
+
+    $scope.$watch('hideCompleted', function() {
+        alert("hi");
+        if ($scope.hideCompleted)
+            $scope.checkText = "checked";
+        else
+            $scope.checkText = "non checked";
+    });
 }

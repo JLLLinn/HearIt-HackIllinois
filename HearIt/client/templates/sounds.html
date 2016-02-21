@@ -3,6 +3,10 @@
 <div class="container"
      ng-controller="SoundFeedCtrl as sc">
   <ion-content>
+      <label class="hide-completed">
+    <input type="checkbox" ng-model="hideCompleted"/>
+    Hide Completed Task Status: {{checkText}}
+  </label>
     <ul>
       <li ng-repeat = "cardData in sc.feed" >
         <div class="list card">
