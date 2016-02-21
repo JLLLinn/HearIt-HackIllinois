@@ -41,12 +41,12 @@ function SoundFeedController($scope, $meteor, $ionicModal){
          // Execute action
        });
 
-    $scope.$watch('completed', function() {
-        alert("hi");
-        if ($scope.completed)
-            $scope.checkText = "checked";
-        else
-            $scope.checkText = "non checked";
-    });
+    // $scope.$watch('completed', function() {
+    //     alert("hi");
+    //     if ($scope.completed)
+    //         $scope.checkText = "checked";
+    //     else
+    //         $scope.checkText = "non checked";
+    // });
 }
 }
