@@ -30,7 +30,7 @@ function config($stateProvider, $urlRouterProvider) {
       views: {
         'tab-account': {
           templateUrl: 'client/templates/account.html',
-          // controller: 'AccountCtrl'
+          controller: 'ProfileCtrl'
         }
       }
     });
