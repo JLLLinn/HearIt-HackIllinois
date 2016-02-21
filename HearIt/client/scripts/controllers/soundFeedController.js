@@ -1,5 +1,5 @@
 angular.module('HearIt')
-.controller('SoundFeedCtrl', ['$scope', '$meteor', SoundFeedController]);
+    .controller('SoundFeedCtrl', ['$scope', '$meteor', SoundFeedController]);
 
 function SoundFeedController($scope, $meteor){
     var self = this;
@@ -10,4 +10,7 @@ function SoundFeedController($scope, $meteor){
         {"title": "Hello World", "date": "Novemebr 05, 1955"},
          {"title": "My Journey to the Alps", "date": "December 21, 1990"}
      ];
+     this.addShortClip = function(){
+         alert("hi");
+     }
 }

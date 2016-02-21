@@ -1,5 +1,5 @@
 angular.module('HearIt')
-.controller('TopSoundsCtrl', ['$scope', '$meteor', TopSoundsController]);
+    .controller('TopSoundsCtrl', ['$scope', '$meteor', TopSoundsController]);
 
 function TopSoundsController($scope, $meteor){
     var self = this;

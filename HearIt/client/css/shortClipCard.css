@@ -1,0 +1,10 @@
+.fixed-bottom{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align:center;
+}
+/*.bar-footer{
+	height: 300px !important;
+}*/
