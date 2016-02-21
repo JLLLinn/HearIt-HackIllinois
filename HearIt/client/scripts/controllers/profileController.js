@@ -7,6 +7,10 @@ function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoadin
   if(Meteor.user() != null){
     $scope.mySoundFeeds = SoundPosts.find({user_id: Meteor.userId()}, {sort: {createdAt: -1}}).fetch();
 
+    if(typeof(Meteor.user().profile) == 'undefined'){
+        Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.private': false }} );
+    }
+
     $scope.privateCheck = Meteor.user().profile.private;
     if(typeof(Meteor.user().profile.following) != 'undefined'){
       $scope.friends=Meteor.users.find({"_id" : {$in : Meteor.user().profile.following}}, {sort: {createdAt: -1}}).fetch();

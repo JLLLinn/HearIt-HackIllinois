@@ -14,22 +14,25 @@
             <img src="profile-man.png">
               <div class = "card-header-container">
                 <div class ="card-header-image">
-                  <img src="smile.svg" style="height:40px; width:40px">
+                  <img src={{cardData.emote}} style="height:40px; width:40px">
                 </div>
                 <div class = "card-header-content">
                   <h2>{{cardData.title}}</h2>
-                  <p>{{cardData.date}}</p>
+                  <p>{{cardData.createdAt}}</p>
+                  <p>{{cardData.username}}</p>
                 </div>
               </div>
           </div>
 
           <div class="item item-body">
-            <img class="full-image" src="delorean.jpg">
-            <p>
-              This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-              the content is from a card-body consisting of an image and paragraph text. The footer
-              consists of tabs, icons aligned left, within the card-footer.
-            </p>
+            <div class = "row">
+        			<div id="viz" class = "col col-90">
+        				<canvas id="wavedisplay" style="width:95%; height:200px; background: #202020"></canvas>
+        			</div>
+        			<div id="controls" class = "col col-10">
+        				<a id="save" href="" ><img src="save.svg"  style="height:40px; width:40px"></a>
+        			</div>
+        		</div>
             <p>
               <a href="#" class="subdued">1 Like</a>
               <a href="#" class="subdued">5 Comments</a>

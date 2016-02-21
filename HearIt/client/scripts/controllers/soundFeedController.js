@@ -5,13 +5,23 @@ angular.module('HearIt')
 
 function SoundFeedController($scope, $meteor, $ionicModal){
     var self = this;
-    this.hello = "Hello World"; //in html we have to use {{instance.hello}}, where instance = name of controllerAs part
-    $scope.date = "November 05, 1955"; //in html we can use use {{date}}
 
-    this.feed = [
-        {"title": "Hello World", "date": "Novemebr 05, 1955"},
-         {"title": "My Journey to the Alps", "date": "December 21, 1990"}
-     ];
+    //client subscribes to all the data from that publication
+    $scope.$meteorSubscribe('soundPosts');
+    //$scope.$meteorSubscribe('users');
+
+    self.feed = $meteor.collection(function() {
+        return SoundPosts.find($scope.getReactively('query'), {sort: {createdAt: -1}})
+     }); //using $meteor service to bind collection into our scope
+
+    self.hello = "Hello World"; //in html we have to use {{instance.hello}}, where instance = name of controllerAs part
+    $scope.date = "November 05, 1955"; //in html we can use use {{date}}
+    $scope.vizData = null;
+    $scope.soundFileLoc = "";
+    // this.feed = [
+    //     {"title": "Hello World", "date": "Novemebr 05, 1955"},
+    //      {"title": "My Journey to the Alps", "date": "December 21, 1990"}
+    //  ];
      this.addShortClip = function(){
          alert("hi");
      }
@@ -50,8 +60,19 @@ function SoundFeedController($scope, $meteor, $ionicModal){
     //         $scope.checkText = "non checked";
     // });
 
+    // For Sound Post Collection methods
+    $scope.addPost = function (title, soundFileLoc, vizData) {
+        $meteor.call('addSoundPost', title, soundFileLoc, vizData);
+    };
+    $scope.deleteSoundPost = function (post) {
+      $meteor.call('deleteSoundPost', post._id);
+    };
+    // For Sound recording and vizualization
     $scope.showResult = true;
 
+    $scope.submitForm = function(title){
+        $scope.addPost(title, $scope.soundFileLoc, $scope.vizData);
+    }
     $scope.toggleRecording = function($event){
         //e = $("#record");
         //e = document.getElementById("record");
@@ -81,7 +102,7 @@ function SoundFeedController($scope, $meteor, $ionicModal){
         var canvas = document.getElementById( "wavedisplay" );
 
         drawBufferGlobal( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
-        vizData = buffers[0];
+        $scope.vizData = buffers[0];
         // the ONLY time gotBuffers is called is right after a new recording is completed -
         // so here's where we should set up the download.
         audioRecorder.exportWAV( doneEncoding );

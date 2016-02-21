@@ -5,9 +5,11 @@
   </ion-header-bar>
   <ion-content class="padding">
     <div class="list">
-      <form novalidate class="css-form">
+      <form novalidate class="css-form"
+      ng-submit="submitForm(title); title=''; soundFileLoc=''; vizData=''"
+      >
         <label class = "item item-input">
-          <input type="text" placeholder="Title" ng-model="post.title" required>
+          <input type="text" placeholder="Title" ng-model="title" required>
         </label>
 
         <div class ="item">
