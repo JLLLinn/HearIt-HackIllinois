@@ -50,7 +50,7 @@ function gotBuffers( buffers ) {
     audioRecorder.exportWAV( doneEncoding );
 }
 
-function doneEncoding( blob ) {
+doneEncoding = function( blob ) {
     setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;
 }

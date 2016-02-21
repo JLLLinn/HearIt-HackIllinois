@@ -7,7 +7,7 @@
     <div class="list">
       <form novalidate class="css-form">
         <label class = "item item-input">
-          <input type="text" placeholder="Title" ng-model="sc.post.title" required>
+          <input type="text" placeholder="Title" ng-model="post.title" required>
         </label>
 
         <div class ="item">
@@ -25,17 +25,17 @@
 
         <div class="item item-body row">
           <div id="viz" class = "col col-80">
-    				<canvas id="analyser" style="width:90%; height:140px; background: #202020"></canvas>
+    				<canvas id="analyser" style="width:90%; height:120px; background: #202020"></canvas>
     			</div>
     			<div id="controls" class = "col col-20">
-    				<img id="record" src="mic128.png" style="width:80px; height:80px"  onclick="toggleRecording(this);" class="">
+    				<img id="record" src="mic128.png" style="width:80px; height:80px" ng-click="toggleRecording($event);" class="">
     			</div>
         </div>
-        <div class = "item item-body row" ng-show="sc.showResult">
-          <div id="viz" class = "col col-90">
-            <canvas id="wavedisplay" style="width:95%; height:200px; background: #202020"></canvas>
+        <div class = "item item-body row" ng-show="showResult">
+          <div id="viz" class = "col col-80">
+            <canvas id="wavedisplay" style="width:90%; height:120px; background: #202020"></canvas>
           </div>
-          <div id="controls" class = "col col-10">
+          <div id="controls" class = "col col-20">
             <a id="save" href="" ><img src="save.svg"  style="height:40px; width:40px"></a>
           </div>
         </div>
