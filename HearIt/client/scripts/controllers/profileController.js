@@ -5,7 +5,7 @@ function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoadin
   $reactive(this).attach($scope);
   $scope.searchedFriends = []
   if(Meteor.user() != null){
-
+    $scope.mySoundFeeds = SoundPosts.find({user_id: Meteor.userId()}, {sort: {createdAt: -1}}).fetch();
 
     $scope.privateCheck = Meteor.user().profile.private;
     if(typeof(Meteor.user().profile.following) != 'undefined'){
